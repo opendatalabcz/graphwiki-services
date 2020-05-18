@@ -1,0 +1,17 @@
+graphwiki:
+  janusgraph:
+    datasource:
+      host: localhost
+      port: 8182
+      traversal-source-name: test_g
+
+  web:
+    cors:
+      allowed-origins:
+    services:
+      user:
+        base-url: http://test:8050/user-service
+      task:
+        base-url: http://test:8090/task-service
+      comment:
+        base-url: http://test:8070/comment-service

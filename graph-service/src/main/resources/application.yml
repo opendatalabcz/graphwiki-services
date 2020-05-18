@@ -1,0 +1,24 @@
+server:
+  servlet:
+    context-path: /@project.artifactId@
+
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: graph_schema
+        temp:
+          use_jdbc_metadata_defaults: false
+
+  flyway:
+    enabled: true
+    schemas: graph_schema
+
+graphwiki:
+  security:
+    jwt:
+      secret: fsd+56f_dasTT
+      technical-token: eyJhbGciOiJIUzUxMiJ9.eyJVU0VSX0lEIjoidGVjaG5pY2FsQGdyYXBod2lraSIsIkFVVEhPUklUSUVTIjpbIlJPTEVfVEVDSE5JQ0FMIl0sInN1YiI6InRlY2huaWNhbEBncmFwaHdpa2kiLCJpYXQiOjE1ODUyMDUwNjEsImV4cCI6OTIyMzM3MjAzNjg1NDc3NX0.K1wg5BGq0QcFmVsjfs4Q5CWRezga0eNyO5sUJWm7PUveXhjjl7NsZmwQLaCjox3bWMWgx256-__0MyaDOB9NfA

@@ -1,0 +1,27 @@
+server:
+  port: 8060
+
+spring:
+  datasource:
+    #https://stackoverflow.com/questions/851758/java-enums-jpa-and-postgres-enums-how-do-i-make-them-work-together
+    url: jdbc:postgresql://localhost:5432/postgres?stringtype=unspecified
+    username: postgres
+    password: admin
+
+graphwiki:
+  janusgraph:
+    datasource:
+      host: localhost
+      port: 8182
+      traversal-source-name: g
+
+  web:
+    cors:
+      allowed-origins: http://localhost:4200, http://localhost:4201
+    services:
+      user:
+        base-url: http://localhost:8050/user-service
+      task:
+        base-url: http://localhost:8090/task-service
+      comment:
+        base-url: http://localhost:8070/comment-service

@@ -1,0 +1,7 @@
+graphwiki:
+  web:
+    cors:
+      allowed-origins:
+    services:
+      user:
+        base-url: http://test:8070/user-service

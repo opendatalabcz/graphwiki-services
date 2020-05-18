@@ -1,0 +1,290 @@
+{
+  "version": "1.0",
+  "datasources": [],
+  "entities": [
+    {
+      "name": "Adresa",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "usage": "HIDDEN"
+        },
+        {
+          "name": "street",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "landRegistryNumber",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "houseNumber",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "postalCode",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "city",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "country",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "author",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "created",
+          "type": "DATE",
+          "usage": "SEARCH"
+        }
+      ],
+      "idTemplate": "[id]",
+      "icons": [
+        {
+          "name": "Adresa",
+          "providerId": "project-file",
+          "resourceName": "default_icon_dum.png",
+          "color": "GREEN",
+          "conditions": [],
+          "priority": 0
+        }
+      ]
+    },
+    {
+      "name": "Firma",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "usage": "HIDDEN"
+        },
+        {
+          "name": "officialName",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "registrationNumber",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "industry",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "inception",
+          "type": "DATE",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "informationSource",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "author",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "created",
+          "type": "DATE",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "Semafor",
+          "type": "INTEGER",
+          "usage": "HIDDEN"
+        }
+      ],
+      "idTemplate": "[id]",
+      "icons": [
+        {
+          "name": "Firma ",
+          "providerId": "project-file",
+          "resourceName": "default_icon_firma.png",
+          "conditions": [],
+          "priority": 0
+        }
+      ]
+    },
+    {
+      "name": "Osoba",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "usage": "HIDDEN"
+        },
+        {
+          "name": "gender",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "givenName",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "familyName",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "dateOfBirth",
+          "type": "DATE",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "nationality",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "occupation",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "informationSource",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "author",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "created",
+          "type": "DATE",
+          "usage": "SEARCH"
+        }
+      ],
+      "idTemplate": "id",
+      "icons": [
+        {
+          "name": "Osoba",
+          "providerId": "project-file",
+          "resourceName": "default_icon_urednik.png",
+          "conditions": [],
+          "priority": 0
+        }
+      ]
+    }
+  ],
+  "relationEntities": [
+    {
+      "name": "RELATIONSHIP",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "usage": "HIDDEN"
+        },
+        {
+          "name": "sourceId",
+          "type": "INTEGER",
+          "usage": "HIDDEN"
+        },
+        {
+          "name": "targetId",
+          "type": "INTEGER",
+          "usage": "HIDDEN"
+        },
+        {
+          "name": "informationSource",
+          "type": "STRING",
+          "usage": "DETAIL"
+        },
+        {
+          "name": "description",
+          "type": "STRING",
+          "usage": "DETAIL"
+        },
+        {
+          "name": "author",
+          "type": "STRING",
+          "usage": "SEARCH"
+        },
+        {
+          "name": "created",
+          "type": "DATE",
+          "usage": "SEARCH"
+        }
+      ],
+      "idTemplate": "[id]",
+      "source": "Osoba",
+      "target": "Osoba",
+      "sourceConditions": [
+        {
+          "sourceAttribute": "id",
+          "targetAttribute": "sourceId"
+        }
+      ],
+      "targetConditions": [
+        {
+          "sourceAttribute": "targetId",
+          "targetAttribute": "id"
+        }
+      ],
+      "directed": true
+    },
+    {
+      "name": "NESTED_VERTEX",
+      "attributes": [
+        {
+          "name": "id",
+          "type": "INTEGER",
+          "usage": "HIDDEN"
+        },
+        {
+          "name": "sourceId",
+          "type": "INTEGER",
+          "usage": "HIDDEN"
+        },
+        {
+          "name": "targetId",
+          "type": "INTEGER",
+          "usage": "HIDDEN"
+        }
+      ],
+      "idTemplate": "[id]",
+      "source": "Osoba",
+      "target": "Osoba",
+      "sourceConditions": [
+        {
+          "sourceAttribute": "id",
+          "targetAttribute": "sourceId"
+        }
+      ],
+      "targetConditions": [
+        {
+          "sourceAttribute": "targetId",
+          "targetAttribute": "id"
+        }
+      ],
+      "directed": true
+    }
+  ],
+  "mappings": [],
+  "relations": [],
+  "savedSearches": [],
+  "reports": []
+}

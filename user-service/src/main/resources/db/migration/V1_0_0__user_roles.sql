@@ -1,0 +1,15 @@
+CREATE TABLE APP_USER (
+    id VARCHAR(50) NOT NULL PRIMARY KEY,
+    given_name VARCHAR(50) NOT NULL,
+    family_name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    password_salt VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE APP_ROLE (
+    id VARCHAR(50) NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    user_id VARCHAR(50),
+    CONSTRAINT role_user_constraint FOREIGN KEY (user_id) REFERENCES APP_USER (id)
+);

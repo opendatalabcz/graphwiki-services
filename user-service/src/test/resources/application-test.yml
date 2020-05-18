@@ -1,0 +1,4 @@
+graphwiki:
+  web:
+    cors:
+      allowed-origins:

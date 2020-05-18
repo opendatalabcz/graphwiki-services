@@ -1,0 +1,13 @@
+CREATE TYPE ENTITY_REQUEST_STATE AS ENUM ('NEW', 'APPROVED', 'REJECTED', 'ENTITY_MODIFIED');
+
+CREATE TABLE ENTITY_REQUEST (
+    id VARCHAR(50) NOT NULL PRIMARY KEY,
+    created timestamp NOT NULL DEFAULT current_timestamp,
+    author VARCHAR(50) NOT NULL,
+    assignee VARCHAR(50),
+    entity_type ENTITY_TYPE NOT NULL,
+    entity_id VARCHAR(50) NOT NULL,
+    state ENTITY_REQUEST_STATE NOT NULL,
+    task_url BYTEA,
+    ip_address BYTEA NOT NULL
+);
