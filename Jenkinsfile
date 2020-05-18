@@ -1,10 +1,12 @@
+def PROJECT_GIT_REPOSITORY = 'https://github.com/opendatalabcz/graphwiki-services.git'
+def GIT_CREDENTIALS = 'github_GregerTomas'
 def SERVICES = ["comment-service", "graph-service", "task-service", "user-service"]
 
 node {
     stage('GIT checkout') {
         git(
-           url: 'https://github.com/opendatalabcz/graphwiki-services.git',
-           credentialsId: 'github_GregerTomas'
+            url: PROJECT_GIT_REPOSITORY,
+            credentialsId: GIT_CREDENTIALS
         )
     }
 
