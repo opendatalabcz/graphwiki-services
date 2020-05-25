@@ -1,8 +1,8 @@
 {
   "propertyKeys" : [ {
-    "name" : "node_id",
-    "dataType" : "Integer",
-    "cardinality" : "SINGLE"
+    "name": "node_id",
+    "dataType": "String",
+    "cardinality": "SINGLE"
   }, {
     "name" : "author",
     "dataType" : "String",
