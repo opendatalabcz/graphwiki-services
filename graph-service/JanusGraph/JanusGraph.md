@@ -35,3 +35,7 @@ Note that start command must not be executed by root user.
 ## Indexes
 #### Fulltext search index creation
 Follow instructions in [fulltext-search-index.md](./fulltext-search-index.md).
+
+
+## Batch import
+See [batch-import.md](./import/batch-import.md).
