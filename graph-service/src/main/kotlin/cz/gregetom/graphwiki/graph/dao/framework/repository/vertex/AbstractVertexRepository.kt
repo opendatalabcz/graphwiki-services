@@ -3,6 +3,8 @@ package cz.gregetom.graphwiki.graph.dao.framework.repository.vertex
 import cz.gregetom.graphwiki.graph.dao.framework.data.edge.EdgeType
 import cz.gregetom.graphwiki.graph.dao.framework.data.vertex.BaseVertex
 import cz.gregetom.graphwiki.graph.dao.framework.data.vertex.VertexType
+import cz.gregetom.graphwiki.graph.dao.framework.fulltextSearch.FulltextSearchProvider
+import cz.gregetom.graphwiki.graph.dao.framework.fulltextSearch.VertexFulltextSearchApi
 import cz.gregetom.graphwiki.graph.dao.framework.repository.AbstractGremlinRepository
 import cz.gregetom.graphwiki.graph.dao.gremlin.repository.findValidVertexById
 import cz.gregetom.graphwiki.graph.dao.gremlin.repository.nextOrThrow
@@ -11,29 +13,43 @@ import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.`__`.unfold
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.`__`.valueMap
 import org.apache.tinkerpop.gremlin.process.traversal.step.util.WithOptions
 import org.apache.tinkerpop.gremlin.structure.Vertex
-import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Pageable
 import javax.annotation.PostConstruct
 import kotlin.reflect.KClass
 
 abstract class AbstractVertexRepository<T : BaseVertex>(private val kClass: KClass<T>)
-    : AbstractGremlinRepository(), VertexRepositoryApi<T> {
+    : AbstractGremlinRepository(), VertexRepositoryApi<T>, VertexFulltextSearchApi<T> {
 
     @Autowired
     private lateinit var vertexRepositoryProvider: VertexRepositoryProvider
 
     private lateinit var vertexType: VertexType
     private lateinit var nestedVerticesConfig: Set<NestedVerticesConfig>
-
+    private lateinit var fulltextSearchProvider: FulltextSearchProvider
 
     @PostConstruct
     fun setUp() {
         this.vertexType = BaseVertex.resolveVertexTypeFromKClass(kClass)
         this.nestedVerticesConfig = NestedVerticesConfigInitializer.setup(kClass)
+        this.fulltextSearchProvider = FulltextSearchProvider(kClass, vertexType, datasource)
     }
 
     override fun support(type: VertexType): Boolean {
         return this.vertexType === type
+    }
+
+    /**
+     * ############################################################
+     * ##############     FULLTEXT SEARCH SECTION     #############
+     * ############################################################
+     */
+    override fun fulltextSearch(query: String, pageable: Pageable): List<T> {
+        return fulltextSearchProvider.fulltextSearch(query, pageable).map { this.findById(it.id().toString()) }
+    }
+
+    override fun fulltextSearchCount(query: String): Long {
+        return fulltextSearchProvider.fulltextSearchCount(query)
     }
 
     /**
