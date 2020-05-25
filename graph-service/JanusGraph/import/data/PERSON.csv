@@ -1,0 +1,3 @@
+node_id,givenName,familyName,gender,nationality,dateOfBirth,occupation,informationSource,author,created,state
+1,John,Travolta,MALE,United_States_of_America,1980-06-15,actor,https://cs.wikipedia.org/wiki/John_Travolta,a611f814-1f5a-4f5d-95b9-c7d808809a12,2020-05-19T07:15:31.649Z,ACTIVE
+2,Tomáš,Greger,MALE,Czech_Republic,1999-12-31,student,https://cs.wikipedia.org/wiki/Fakulta_informa%C4%8Dn%C3%ADch_technologi%C3%AD_%C4%8CVUT,a611f814-1f5a-4f5d-95b9-c7d808809a12,2020-05-19T07:09:34.898Z,ACTIVE

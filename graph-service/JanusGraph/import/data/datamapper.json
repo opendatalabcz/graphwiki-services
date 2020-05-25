@@ -1,0 +1,114 @@
+{
+  "vertexMap" : {
+    "ADDRESS.csv" : {
+      "[VertexLabel]" : "ADDRESS",
+      "country" : "country",
+      "landRegistryNumber" : "landRegistryNumber",
+      "city" : "city",
+      "street" : "street",
+      "author" : "author",
+      "created" : "created",
+      "postalCode" : "postalCode",
+      "houseNumber" : "houseNumber",
+      "node_id" : "node_id"
+    },
+    "PERSON.csv" : {
+      "[VertexLabel]" : "PERSON",
+      "occupation" : "occupation",
+      "gender" : "gender",
+      "nationality" : "nationality",
+      "informationSource" : "informationSource",
+      "author" : "author",
+      "created" : "created",
+      "givenName" : "givenName",
+      "familyName" : "familyName",
+      "dateOfBirth" : "dateOfBirth",
+      "state" : "state",
+      "node_id" : "node_id"
+    },
+    "COMPANY.csv" : {
+      "[VertexLabel]" : "COMPANY",
+      "informationSource" : "informationSource",
+      "author" : "author",
+      "created" : "created",
+      "registrationNumber" : "registrationNumber",
+      "inception" : "inception",
+      "industry" : "industry",
+      "state" : "state",
+      "officialName" : "officialName",
+      "node_id" : "node_id"
+    }
+  },
+  "edgeMap" : {
+    "PERSON_RELATIONSHIP_PERSON_edges.csv" : {
+      "[edge_left]" : {
+        "Left" : "PERSON.node_id"
+      },
+      "informationSource" : "informationSource",
+      "author" : "author",
+      "created" : "created",
+      "[EdgeLabel]" : "RELATIONSHIP",
+      "[edge_right]" : {
+        "Right" : "PERSON.node_id"
+      },
+      "description" : "description",
+      "state" : "state",
+      "type" : "type"
+    },
+    "COMPANY_NESTED_VERTEX_ADDRESS_edges.csv" : {
+      "nested-vertex-name" : "nested-vertex-name",
+      "[edge_left]" : {
+        "Left" : "COMPANY.node_id"
+      },
+      "[EdgeLabel]" : "NESTED_VERTEX",
+      "[edge_right]" : {
+        "Right" : "ADDRESS.node_id"
+      }
+    },
+    "COMPANY_RELATIONSHIP_PERSON_edges.csv" : {
+      "[edge_left]" : {
+        "Left" : "COMPANY.node_id"
+      },
+      "informationSource" : "informationSource",
+      "author" : "author",
+      "created" : "created",
+      "[EdgeLabel]" : "RELATIONSHIP",
+      "[edge_right]" : {
+        "Right" : "PERSON.node_id"
+      },
+      "description" : "description",
+      "state" : "state",
+      "type" : "type"
+    },
+    "PERSON_RELATIONSHIP_COMPANY_edges.csv" : {
+      "[edge_left]" : {
+        "Left" : "PERSON.node_id"
+      },
+      "informationSource" : "informationSource",
+      "author" : "author",
+      "created" : "created",
+      "[EdgeLabel]" : "RELATIONSHIP",
+      "[edge_right]" : {
+        "Right" : "COMPANY.node_id"
+      },
+      "description" : "description",
+      "state" : "state",
+      "type" : "type"
+    },
+    "COMPANY_RELATIONSHIP_COMPANY_edges.csv" : {
+      "[edge_left]" : {
+        "Left" : "COMPANY.node_id"
+      },
+      "informationSource" : "informationSource",
+      "author" : "author",
+      "created" : "created",
+      "[EdgeLabel]" : "RELATIONSHIP",
+      "[edge_right]" : {
+        "Right" : "COMPANY.node_id"
+      },
+      "description" : "description",
+      "state" : "state",
+      "type" : "type"
+    }
+  }
+}

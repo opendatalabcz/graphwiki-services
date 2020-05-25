@@ -1,0 +1,147 @@
+{
+  "propertyKeys" : [ {
+    "name" : "node_id",
+    "dataType" : "Integer",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "author",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "created",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "informationSource",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "state",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "givenName",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "familyName",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "gender",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "nationality",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "dateOfBirth",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "occupation",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "officialName",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "registrationNumber",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "industry",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "inception",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "country",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "landRegistryNumber",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "city",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "street",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "postalCode",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "houseNumber",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "nested-vertex-name",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "author",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "created",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "informationSource",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "state",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "type",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  }, {
+    "name" : "description",
+    "dataType" : "String",
+    "cardinality" : "SINGLE"
+  } ],
+  "vertexLabels" : [ {
+    "name" : "PERSON",
+    "partition" : false,
+    "useStatic" : false
+  }, {
+    "name" : "COMPANY",
+    "partition" : false,
+    "useStatic" : false
+  }, {
+    "name" : "ADDRESS",
+    "partition" : false,
+    "useStatic" : false
+  } ],
+  "edgeLabels" : [ {
+    "name" : "NESTED_VERTEX",
+    "multiplicity" : "ONE2ONE",
+    "signatures" : null,
+    "unidirected" : false
+  }, {
+    "name" : "RELATIONSHIP",
+    "multiplicity" : "MULTI",
+    "signatures" : null,
+    "unidirected" : false
+  } ],
+  "vertexIndexes" : [ {
+    "name" : "node_id_comp",
+    "propertyKeys" : [ "node_id" ],
+    "composite" : true,
+    "unique" : true
+  } ],
+  "edgeIndexes" : [ ],
+  "vertexCentricIndexes" : [ ]
+}
