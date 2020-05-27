@@ -28,7 +28,7 @@ Following tools must be installed:
 | Docker | 19.03.8 |
 | Jenkins |  2.204.5 |
 
-For application configuration, see configuration files (**.properties*).
+For application configuration, see configuration files (*\*.properties*).
 
 
 
