@@ -11,5 +11,5 @@ Directory with schema.json, datamapper.json and CSVs is located [here](./data).
 ```
 export JANUSGRAPH_HOME=~/janusgraph
 
-./run.sh import JANUSGRAPH_HOME/conf/gremlin-server/$PROPERTY_FILE ./data ./data/schema.json ./data/datamapper.json
+./run.sh import $JANUSGRAPH_HOME/conf/gremlin-server/$PROPERTY_FILE ./data ./data/schema.json ./data/datamapper.json
 ```
