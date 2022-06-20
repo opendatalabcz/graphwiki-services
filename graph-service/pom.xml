@@ -12,7 +12,7 @@
     </parent>
 
     <properties>
-        <kotlin.version>1.3.61</kotlin.version>
+        <kotlin.version>1.6.0</kotlin.version>
         <java.version>1.8</java.version>
         <janusgraph.version>0.5.0</janusgraph.version>
         <gremlin.version>3.4.6</gremlin.version>
